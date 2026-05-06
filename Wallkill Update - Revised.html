@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wallkill, NY NextGen FC — Executive Strategic Update</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', -apple-system, Arial, sans-serif;
+      background: #0a0a1a;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* ── SLIDE BASE ─────────────────────────────────────── */
+    .slide {
+      display: none;
+      position: absolute;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #ffffff;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .slide.active { display: flex; }
+
+    /* ── SHARED HEADER ──────────────────────────────────── */
+    .slide-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 36px 52px 20px 52px;
+      flex-shrink: 0;
+    }
+    .slide-header .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .slide-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #ffc220;
+    }
+    .slide-title {
+      font-size: clamp(22px, 2.6vw, 32px);
+      font-weight: 700;
+      color: #0053e2;
+      line-height: 1.15;
+      max-width: 72vw;
+    }
+    .slide-subtitle {
+      font-size: clamp(13px, 1.3vw, 16px);
+      color: #444;
+      margin-top: 4px;
+      font-weight: 400;
+    }
+    .spark-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .spark-symbol {
+      font-size: 28px;
+      color: #ffc220;
+      line-height: 1;
+    }
+    .spark-wordmark {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0053e2;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── SHARED FOOTER ──────────────────────────────────── */
+    .slide-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 52px 14px 52px;
+      border-top: 1.5px solid #e8edf7;
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+    .footer-conf {
+      font-size: 10px;
+      color: #888;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+    .footer-right {
+      font-size: 10px;
+      color: #aaa;
+    }
+    .footer-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: #ffc220;
+      border-radius: 50%;
+      margin: 0 6px;
+      vertical-align: middle;
+    }
+
+    /* ── SLIDE CONTENT AREA ─────────────────────────────── */
+    .slide-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 0 52px;
+      overflow: hidden;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SLIDE 1 — KEY STRATEGIC QUESTIONS
+    ══════════════════════════════════════════════════════ */
+    #slide-1 .slide-body {
+      flex-direction: row;
+      gap: 28px;
+      padding-bottom: 6px;
+    }
+    .s1-col {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .s1-col-header {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #0053e2;
+      border-bottom: 2.5px solid #0053e2;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+    .s1-divider {
+      width: 1.5px;
+      background: #e0e6f0;
+      flex-shrink: 0;
+      align-self: stretch;
+    }
+    .s1-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 14px;
+      background: #f6f8fd;
+      border-left: 3.5px solid #0053e2;
+      border-radius: 0 6px 6px 0;
+    }
+    .s1-item.accent { border-left-color: #ffc220; }
+    .s1-icon {
+      width: 30px;
+      height: 30px;
+      background: #0053e2;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .s1-icon.yellow { background: #ffc220; color: #1a1a2e; }
+    .s1-item-text {
+      font-size: clamp(12px, 1.15vw, 15px);
+      color: #1a1a2e;
+      line-height: 1.5;
+    }
+    .s1-item-text strong { color: #0053e2; }
+    .s1-callout {
+      background: #0053e2;
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: clamp(12px, 1.1vw, 14px);
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+    .s1-callout strong { color: #ffc220; }
+
+    /* ══════════════════════════════════════════════════════
+       SLIDE 2 — MORATORIUM PATH & ROADMAP
+    ══════════════════════════════════════════════════════ */
+    #slide-2 .slide-body {
+      flex-direction: column;
+      gap: 14px;
+      padding-bottom: 4px;
+    }
+    .s2-pillars {
+      display: flex;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .s2-pillar {
+      flex: 1;
+      background: #f6f8fd;
+      border-top: 4px solid #0053e2;
+      border-radius: 0 0 8px 8px;
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .s2-pillar-icon {
+      width: 38px;
+      height: 38px;
+      background: #0053e2;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .s2-pillar-num {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffc220;
+    }
+    .s2-pillar-title {
+      font-size: clamp(13px, 1.2vw, 15px);
+      font-weight: 700;
+      color: #0053e2;
+      line-height: 1.2;
+    }
+    .s2-pillar-body {
+      font-size: clamp(11px, 1vw, 13px);
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* Timeline */
+    .s2-timeline-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow: hidden;
+    }
+    .s2-timeline-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #0053e2;
+      border-bottom: 1.5px solid #e0e6f0;
+      padding-bottom: 6px;
+      flex-shrink: 0;
+    }
+    .s2-timeline {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      flex: 1;
+      position: relative;
+    }
+    /* horizontal connector line */
+    .s2-timeline::before {
+      content: '';
+      position: absolute;
+      top: 34px;
+      left: 20px;
+      right: 20px;
+      height: 3px;
+      background: linear-gradient(90deg, #0053e2 0%, #b3c8f8 100%);
+      z-index: 0;
+    }
+    .s2-milestone {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      gap: 4px;
+      padding: 0 4px;
+    }
+    .s2-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #fff;
+      border: 3px solid #0053e2;
+      flex-shrink: 0;
+      margin-top: 26px;
+      position: relative;
+      z-index: 2;
+    }
+    .s2-dot.critical {
+      width: 26px;
+      height: 26px;
+      background: #ffc220;
+      border-color: #cc8800;
+      margin-top: 22px;
+      box-shadow: 0 0 0 4px rgba(255,194,32,0.25);
+    }
+    .s2-dot.go-live {
+      background: #0053e2;
+      border-color: #003aaa;
+    }
+    .s2-m-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0053e2;
+      text-align: center;
+      margin-top: 6px;
+      line-height: 1.2;
+    }
+    .s2-m-date.critical { color: #995200; }
+    .s2-m-date.go-live { color: #0053e2; }
+    .s2-m-text {
+      font-size: 10.5px;
+      color: #444;
+      text-align: center;
+      line-height: 1.35;
+    }
+    .s2-critical-badge {
+      background: #ffc220;
+      color: #1a1a2e;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .s2-go-live-badge {
+      background: #0053e2;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       SLIDE 3 — CRITICAL PATH COMPARISON
+    ══════════════════════════════════════════════════════ */
+    #slide-3 .slide-body {
+      flex-direction: column;
+      gap: 12px;
+      padding-bottom: 4px;
+    }
+    /* top banner */
+    .s3-banner {
+      display: flex;
+      gap: 14px;
+    }
+    .s3-banner-card {
+      flex: 1;
+      background: #f6f8fd;
+      border-left: 4px solid #0053e2;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .s3-banner-card.yellow { border-left-color: #ffc220; background: #fffbef; }
+    .s3-banner-icon {
+      font-size: 20px;
+      color: #0053e2;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .s3-banner-icon.yellow { color: #cc8800; }
+    .s3-banner-text {
+      font-size: clamp(11px, 1.05vw, 13px);
+      color: #1a1a2e;
+      line-height: 1.5;
+    }
+    .s3-banner-text strong { color: #0053e2; }
+    .s3-banner-text strong.yellow { color: #995200; }
+
+    /* Comparison table */
+    .s3-table-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .s3-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: clamp(11px, 1.1vw, 14px);
+    }
+    .s3-table thead th {
+      padding: 10px 18px;
+      font-weight: 700;
+      text-align: left;
+      background: #0053e2;
+      color: #fff;
+      font-size: clamp(11px, 1.05vw, 13px);
+      letter-spacing: 0.04em;
+    }
+    .s3-table thead th:first-child { border-radius: 8px 0 0 0; }
+    .s3-table thead th:last-child { border-radius: 0 8px 0 0; text-align: center; }
+    .s3-table thead th.center { text-align: center; }
+    .s3-table tbody tr:nth-child(even) td { background: #f6f8fd; }
+    .s3-table tbody tr:nth-child(odd) td { background: #fff; }
+    .s3-table tbody td {
+      padding: 9px 18px;
+      color: #1a1a2e;
+      border-bottom: 1px solid #e8edf7;
+      line-height: 1.4;
+      vertical-align: middle;
+    }
+    .s3-table tbody td.center { text-align: center; }
+    .s3-table tbody td.milestone-label {
+      font-weight: 600;
+      color: #333;
+      background: #f0f4fc !important;
+      font-size: clamp(10.5px, 1vw, 13px);
+    }
+    .s3-table tbody tr.highlight td {
+      background: #fffbef !important;
+      border-top: 2px solid #ffc220;
+      border-bottom: 2px solid #ffc220;
+      font-weight: 700;
+    }
+    .s3-table tbody tr.highlight td.milestone-label { color: #0053e2; }
+    .s3-table tbody tr.go-live-row td {
+      background: #eef3ff !important;
+      border-top: 2px solid #0053e2;
+      border-bottom: 2px solid #0053e2;
+      font-weight: 700;
+      color: #0053e2;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 10.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .badge-yellow { background: #ffc220; color: #1a1a2e; }
+    .badge-blue { background: #0053e2; color: #fff; }
+    .badge-gray { background: #e5e8ee; color: #555; }
+    .badge-green { background: #d4edda; color: #1a5c2a; }
+    .delta-text { color: #888; font-size: 11px; font-weight: 600; }
+
+    /* verdict banner */
+    .s3-verdict {
+      background: #0053e2;
+      color: #fff;
+      border-radius: 8px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .s3-verdict-icon { font-size: 22px; color: #ffc220; flex-shrink: 0; }
+    .s3-verdict-text { font-size: clamp(12px, 1.1vw, 14px); line-height: 1.5; }
+    .s3-verdict-text strong { color: #ffc220; }
+
+    /* ── NAV ─────────────────────────────────────────────── */
+    .slide-nav {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      background: rgba(10,10,26,0.88);
+      backdrop-filter: blur(6px);
+      padding: 10px 22px;
+      border-radius: 30px;
+      z-index: 1000;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: color 0.18s, background 0.18s;
+      line-height: 1;
+    }
+    .nav-btn:hover { color: #ffc220; background: rgba(255,194,32,0.12); }
+    .nav-btn:focus-visible { outline: 2px solid #ffc220; outline-offset: 2px; }
+    .slide-counter {
+      color: #ccc;
+      font-size: 13px;
+      min-width: 54px;
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .slide-indicator {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .indicator-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .indicator-dot.active {
+      background: #ffc220;
+      transform: scale(1.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  SLIDE 1 — KEY STRATEGIC QUESTIONS                  ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<div class="slide active" id="slide-1" role="main" aria-label="Slide 1: Key Strategic Questions">
+
+  <div class="slide-header">
+    <div class="header-left">
+      <span class="slide-label">Wallkill, NY — NextGen Fulfillment Center</span>
+      <h1 class="slide-title">Key Strategic Questions &amp; Takeaways</h1>
+      <p class="slide-subtitle">Executive Decision Brief &mdash; Capital Commitment Review</p>
+    </div>
+    <div class="spark-logo" aria-label="Walmart">
+      <span class="spark-symbol" aria-hidden="true">&#10033;</span>
+      <span class="spark-wordmark">WALMART</span>
+    </div>
+  </div>
+
+  <div class="slide-body">
+
+    <!-- LEFT: Questions -->
+    <div class="s1-col">
+      <div class="s1-col-header"><i class="fas fa-circle-question" aria-hidden="true"></i>&nbsp; Key Strategic Questions</div>
+
+      <div class="s1-item">
+        <div class="s1-icon" aria-hidden="true"><i class="fas fa-shield-halved"></i></div>
+        <div class="s1-item-text"><strong>Risk Tolerance:</strong> Are we aligned on the $65M–$200M incentive exposure — and comfortable with the political path required to de-risk it?</div>
+      </div>
+
+      <div class="s1-item">
+        <div class="s1-icon" aria-hidden="true"><i class="fas fa-calendar-check"></i></div>
+        <div class="s1-item-text"><strong>Go-Live Timing:</strong> Can the business absorb a May FY31 go-live (shifted from Nov FY30) given network planning and demand forecasts?</div>
+      </div>
+
+      <div class="s1-item">
+        <div class="s1-icon" aria-hidden="true"><i class="fas fa-map-pin"></i></div>
+        <div class="s1-item-text"><strong>Site Commitment:</strong> Do we confirm Wallkill as the preferred Northeast NextGen site — locking in the strategy and capital plan?</div>
+      </div>
+
+      <div class="s1-item accent">
+        <div class="s1-icon yellow" aria-hidden="true"><i class="fas fa-users"></i></div>
+        <div class="s1-item-text"><strong>Political Strategy:</strong> Are we committed to 100% union construction labor as the primary lever to secure Governor support and protect incentives?</div>
+      </div>
+    </div>
+
+    <div class="s1-divider" aria-hidden="true"></div>
+
+    <!-- RIGHT: Takeaways -->
+    <div class="s1-col">
+      <div class="s1-col-header"><i class="fas fa-circle-check" aria-hidden="true"></i>&nbsp; Key Takeaways</div>
+
+      <div class="s1-item">
+        <div class="s1-icon" aria-hidden="true"><i class="fas fa-star"></i></div>
+        <div class="s1-item-text"><strong>Wallkill remains the preferred site</strong> for the Northeast NextGen network — superior network fit and overall value vs. alternatives.</div>
+      </div>
+
+      <div class="s1-item">
+        <div class="s1-icon" aria-hidden="true"><i class="fas fa-route"></i></div>
+        <div class="s1-item-text"><strong>A clear navigation path exists</strong> through the moratorium — via administrative exemption, avoiding unpredictable public vote risk.</div>
+      </div>
+
+      <div class="s1-item">
+        <div class="s1-icon" aria-hidden="true"><i class="fas fa-person-digging"></i></div>
+        <div class="s1-item-text"><strong>100% union labor is the political shield</strong> — it provides leverage with the Governor to secure both exemptions and incentive commitments.</div>
+      </div>
+
+      <div class="s1-callout">
+        <i class="fas fa-bolt" aria-hidden="true"></i>&nbsp;
+        <strong>Ask of leadership:</strong> Confirm commitment to Wallkill. Align on risk tolerance for incentive exposure ($65M–$200M discretionary) and a May FY31 go-live target.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-conf"><i class="fas fa-lock" aria-hidden="true" style="font-size:9px;margin-right:4px;"></i>Private &amp; Confidential — Walmart Internal Use Only</span>
+    <span class="footer-right">Wallkill NextGen FC<span class="footer-dot" aria-hidden="true"></span>Executive Review<span class="footer-dot" aria-hidden="true"></span>2026</span>
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  SLIDE 2 — MORATORIUM PATH & ROADMAP               ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<div class="slide" id="slide-2" role="main" aria-label="Slide 2: Clear Path Through the Moratorium">
+
+  <div class="slide-header">
+    <div class="header-left">
+      <span class="slide-label">Moratorium Navigation &amp; Project Roadmap</span>
+      <h1 class="slide-title">We Have a Clear Path — And We're Already in Motion</h1>
+      <p class="slide-subtitle">Three strategic pillars de-risk the moratorium. The April 2026 exemption is the critical gate.</p>
+    </div>
+    <div class="spark-logo" aria-label="Walmart">
+      <span class="spark-symbol" aria-hidden="true">&#10033;</span>
+      <span class="spark-wordmark">WALMART</span>
+    </div>
+  </div>
+
+  <div class="slide-body">
+
+    <!-- 3 Pillars -->
+    <div class="s2-pillars" role="list" aria-label="Three strategic pillars">
+
+      <div class="s2-pillar" role="listitem">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="s2-pillar-icon" aria-hidden="true"><i class="fas fa-file-shield"></i></div>
+          <span class="s2-pillar-num">Pillar 01</span>
+        </div>
+        <div class="s2-pillar-title">Administrative Exemption Route</div>
+        <div class="s2-pillar-body">Pursuing a direct exemption from the Town — not a public vote. This bypasses the volatility of a formal referendum and keeps the decision in the hands of aligned officials rather than the open ballot.</div>
+      </div>
+
+      <div class="s2-pillar" role="listitem">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="s2-pillar-icon" aria-hidden="true"><i class="fas fa-hard-hat"></i></div>
+          <span class="s2-pillar-num">Pillar 02</span>
+        </div>
+        <div class="s2-pillar-title">100% Union Labor as Political Shield</div>
+        <div class="s2-pillar-body">Committing to full union construction labor gives the project political legitimacy with the Governor — the key ally needed to secure both the moratorium exemption and $65M–$200M in discretionary incentives.</div>
+      </div>
+
+      <div class="s2-pillar" role="listitem">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div class="s2-pillar-icon" aria-hidden="true"><i class="fas fa-clock-rotate-left"></i></div>
+          <span class="s2-pillar-num">Pillar 03</span>
+        </div>
+        <div class="s2-pillar-title">Legacy Project Framing (2003 Continuity)</div>
+        <div class="s2-pillar-body">Positioning Wallkill as a continuation of the 2003 approved project reduces environmental review triggers and infrastructure demands — lowering the bar for approval and accelerating the exemption pathway.</div>
+      </div>
+
+    </div>
+
+    <!-- Timeline -->
+    <div class="s2-timeline-wrap">
+      <div class="s2-timeline-label"><i class="fas fa-timeline" aria-hidden="true"></i>&nbsp; Key Milestone Roadmap — Critical Gate: April 24, 2026 Moratorium Exemption</div>
+
+      <div class="s2-timeline" role="list" aria-label="Project milestone timeline">
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;"><div class="s2-dot" aria-label="Town Supervisor Meeting"></div></div>
+          <div class="s2-m-date">Mar 25<br>2026</div>
+          <div class="s2-m-text">Town Supervisor<br>Meeting</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;"><div class="s2-dot" aria-label="Governor alignment meeting"></div></div>
+          <div class="s2-m-date">Mar 26<br>2026</div>
+          <div class="s2-m-text">Governor &amp; Union<br>Alignment Meetings</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;"><div class="s2-dot" aria-label="Moratorium exemption submission path"></div></div>
+          <div class="s2-m-date">Apr 10–15<br>2026</div>
+          <div class="s2-m-text">Exemption Path<br>Confirmed &amp; Filed</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;">
+            <div class="s2-dot critical" aria-label="Critical milestone: Moratorium Exemption received"></div>
+          </div>
+          <div class="s2-m-date critical">Apr 24<br>2026</div>
+          <span class="s2-critical-badge" aria-label="Critical gate"><i class="fas fa-exclamation" aria-hidden="true"></i>&nbsp;Critical Gate</span>
+          <div class="s2-m-text" style="font-weight:700;color:#7a4500;">Moratorium<br>Exemption Received</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;"><div class="s2-dot" aria-label="Full capital approval"></div></div>
+          <div class="s2-m-date">Aug 19<br>2026</div>
+          <div class="s2-m-text">ASM Full Capital<br>Approval</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;"><div class="s2-dot" aria-label="Technical approvals complete"></div></div>
+          <div class="s2-m-date">2027</div>
+          <div class="s2-m-text">NYSDOT, SEQR,<br>NYSDEC Approvals</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;"><div class="s2-dot" aria-label="Construction begins"></div></div>
+          <div class="s2-m-date">2028</div>
+          <div class="s2-m-text">Site Work &amp;<br>Construction Start</div>
+        </div>
+
+        <div class="s2-milestone" role="listitem">
+          <div style="height:26px;display:flex;align-items:center;">
+            <div class="s2-dot go-live" aria-label="Phase 1 go-live"></div>
+          </div>
+          <div class="s2-m-date go-live">May<br>2030</div>
+          <span class="s2-go-live-badge"><i class="fas fa-circle-check" aria-hidden="true"></i>&nbsp;Go-Live</span>
+          <div class="s2-m-text" style="font-weight:700;color:#0053e2;">Phase 1<br>Operational</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-conf"><i class="fas fa-lock" aria-hidden="true" style="font-size:9px;margin-right:4px;"></i>Private &amp; Confidential — Walmart Internal Use Only</span>
+    <span class="footer-right">Wallkill NextGen FC<span class="footer-dot" aria-hidden="true"></span>Executive Review<span class="footer-dot" aria-hidden="true"></span>2026</span>
+  </div>
+</div>
+
+
+<!-- ╔══════════════════════════════════════════════════════╗
+     ║  SLIDE 3 — CRITICAL PATH COMPARISON                ║
+     ╚══════════════════════════════════════════════════════╝ -->
+<div class="slide" id="slide-3" role="main" aria-label="Slide 3: Wallkill vs Douglas Critical Path">
+
+  <div class="slide-header">
+    <div class="header-left">
+      <span class="slide-label">Critical Path Evaluation — Wallkill, NY vs. Douglas, MA</span>
+      <h1 class="slide-title">Douglas Does Not Move the Needle — Wallkill Remains the Right Choice</h1>
+      <p class="slide-subtitle">A ~6-week schedule difference is not a reason to abandon superior network fit and overall project value.</p>
+    </div>
+    <div class="spark-logo" aria-label="Walmart">
+      <span class="spark-symbol" aria-hidden="true">&#10033;</span>
+      <span class="spark-wordmark">WALMART</span>
+    </div>
+  </div>
+
+  <div class="slide-body">
+
+    <!-- Top context banners -->
+    <div class="s3-banner">
+      <div class="s3-banner-card" style="flex:1.3;">
+        <div class="s3-banner-icon" aria-hidden="true"><i class="fas fa-lock"></i></div>
+        <div class="s3-banner-text">
+          <strong>The Statutory Black Box:</strong> Both sites face a mandatory, non-compressible <strong>12-month environmental review</strong> cycle. No amount of capital injection or additional labor can accelerate it — it is a fixed regulatory constraint that anchors both timelines equally.
+        </div>
+      </div>
+      <div class="s3-banner-card yellow" style="flex:0.85;">
+        <div class="s3-banner-icon yellow" aria-hidden="true"><i class="fas fa-triangle-exclamation"></i></div>
+        <div class="s3-banner-text">
+          <strong class="yellow">FY30 is not achievable</strong> at either site. Earliest go-live at either location is <strong>April–May 2030</strong>. The question is site selection — not timeline acceleration.
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison table -->
+    <div class="s3-table-wrap">
+      <table class="s3-table" role="table" aria-label="Wallkill vs Douglas milestone comparison">
+        <thead>
+          <tr>
+            <th scope="col" style="width:30%;">Milestone</th>
+            <th scope="col" class="center" style="width:24%;"><i class="fas fa-location-dot" aria-hidden="true"></i>&nbsp; Wallkill, NY <span style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.7);">(Preferred)</span></th>
+            <th scope="col" class="center" style="width:24%;"><i class="fas fa-location-dot" aria-hidden="true"></i>&nbsp; Douglas, MA <span style="font-weight:400;font-size:10px;color:rgba(255,255,255,0.7);">(Alternative)</span></th>
+            <th scope="col" class="center" style="width:22%;">Schedule Delta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="milestone-label">Fixed Site Dependency</td>
+            <td class="center">May 26, 2026<br><span style="font-size:10px;color:#666;">Town moratorium vote</span></td>
+            <td class="center">Apr 1, 2026<br><span style="font-size:10px;color:#666;">Design approval</span></td>
+            <td class="center"><span class="badge badge-gray">~8 wks earlier</span></td>
+          </tr>
+          <tr>
+            <td class="milestone-label">Environmental Submission</td>
+            <td class="center">Oct 2, 2026<br><span style="font-size:10px;color:#666;">SEQRA (NY)</span></td>
+            <td class="center">Nov 30, 2026<br><span style="font-size:10px;color:#666;">MEPA (MA)</span></td>
+            <td class="center"><span class="badge badge-blue">Wallkill earlier</span></td>
+          </tr>
+          <tr>
+            <td class="milestone-label"><i class="fas fa-lock" aria-hidden="true" style="color:#0053e2;font-size:10px;"></i>&nbsp; 12-Month Statutory Review</td>
+            <td class="center" colspan="2" style="text-align:center;font-style:italic;color:#555;font-size:12px;">Fixed by law at both sites — cannot be accelerated by capital or labor</td>
+            <td class="center"><span class="badge badge-gray">No difference</span></td>
+          </tr>
+          <tr>
+            <td class="milestone-label">Permitting Complete</td>
+            <td class="center">Oct 2027</td>
+            <td class="center">Nov 2027</td>
+            <td class="center"><span class="badge badge-blue">Wallkill earlier</span></td>
+          </tr>
+          <tr>
+            <td class="milestone-label">Post-Permitting Construction</td>
+            <td class="center" colspan="2" style="text-align:center;font-style:italic;color:#555;font-size:12px;">~20 months at both sites — identical construction timeline</td>
+            <td class="center"><span class="badge badge-gray">No difference</span></td>
+          </tr>
+          <tr>
+            <td class="milestone-label">Substantial Completion</td>
+            <td class="center">Oct 26, 2029</td>
+            <td class="center">Sep 7, 2029</td>
+            <td class="center"><span class="badge badge-gray">~7 wks</span></td>
+          </tr>
+          <tr class="highlight">
+            <td class="milestone-label"><i class="fas fa-flag-checkered" aria-hidden="true" style="color:#cc8800;"></i>&nbsp; Phase 1 Go-Live Target</td>
+            <td class="center"><span class="badge badge-blue">May 13, 2030</span></td>
+            <td class="center"><span class="badge badge-gray">Apr 1, 2030</span></td>
+            <td class="center"><span style="font-weight:800;font-size:14px;color:#7a4500;">~6 Weeks</span><br><span class="delta-text">Not material</span></td>
+          </tr>
+          <tr class="go-live-row">
+            <td class="milestone-label" style="color:#0053e2 !important;"><i class="fas fa-award" aria-hidden="true"></i>&nbsp; Network Fit &amp; Overall Value</td>
+            <td class="center" style="color:#0053e2 !important;"><i class="fas fa-circle-check" aria-hidden="true"></i>&nbsp; Superior — Preferred site</td>
+            <td class="center" style="color:#888 !important;"><i class="fas fa-circle-minus" aria-hidden="true" style="color:#999;"></i>&nbsp; Lower value, higher CapEx</td>
+            <td class="center"><span class="badge badge-blue">Wallkill wins</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Verdict -->
+    <div class="s3-verdict" role="note" aria-label="Recommendation">
+      <div class="s3-verdict-icon" aria-hidden="true"><i class="fas fa-circle-check"></i></div>
+      <div class="s3-verdict-text">
+        <strong>Recommendation: Confirm Wallkill.</strong> Douglas offers only a <strong>~6-week schedule advantage</strong> while delivering inferior network fit and higher capital cost. The 12-month statutory environmental review is identical at both sites and cannot be compressed. The schedule delta is not a sufficient reason to switch.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="slide-footer">
+    <span class="footer-conf"><i class="fas fa-lock" aria-hidden="true" style="font-size:9px;margin-right:4px;"></i>Private &amp; Confidential — Walmart Internal Use Only</span>
+    <span class="footer-right">Wallkill NextGen FC<span class="footer-dot" aria-hidden="true"></span>Executive Review<span class="footer-dot" aria-hidden="true"></span>2026</span>
+  </div>
+</div>
+
+
+<!-- ── NAVIGATION ─────────────────────────────────────────── -->
+<nav class="slide-nav" role="navigation" aria-label="Slide navigation">
+  <button class="nav-btn" id="btn-prev" aria-label="Previous slide"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+
+  <div class="slide-indicator" role="list" aria-label="Slide position indicators">
+    <div class="indicator-dot active" data-slide="0" role="listitem" aria-label="Slide 1" tabindex="0"></div>
+    <div class="indicator-dot" data-slide="1" role="listitem" aria-label="Slide 2" tabindex="0"></div>
+    <div class="indicator-dot" data-slide="2" role="listitem" aria-label="Slide 3" tabindex="0"></div>
+  </div>
+
+  <span class="slide-counter" aria-live="polite" aria-atomic="true">1 / 3</span>
+
+  <button class="nav-btn" id="btn-next" aria-label="Next slide"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+  <button class="nav-btn" id="btn-fullscreen" aria-label="Toggle fullscreen"><i class="fas fa-expand" aria-hidden="true"></i></button>
+</nav>
+
+
+<script>
+  (function () {
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.querySelector('.slide-counter');
+    const dots = document.querySelectorAll('.indicator-dot');
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(n) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = ((n % total) + total) % total;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      counter.textContent = `${current + 1} / ${total}`;
+    }
+
+    document.getElementById('btn-prev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('btn-next').addEventListener('click', () => goTo(current + 1));
+
+    document.getElementById('btn-fullscreen').addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+        document.getElementById('btn-fullscreen').innerHTML = '<i class="fas fa-compress" aria-hidden="true"></i>';
+        document.getElementById('btn-fullscreen').setAttribute('aria-label', 'Exit fullscreen');
+      } else {
+        document.exitFullscreen();
+        document.getElementById('btn-fullscreen').innerHTML = '<i class="fas fa-expand" aria-hidden="true"></i>';
+        document.getElementById('btn-fullscreen').setAttribute('aria-label', 'Toggle fullscreen');
+      }
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => goTo(parseInt(dot.dataset.slide)));
+      dot.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          goTo(parseInt(dot.dataset.slide));
+        }
+      });
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.target.closest('.slide-nav') && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+      switch (e.key) {
+        case 'ArrowRight':
+        case ' ':
+          e.preventDefault(); goTo(current + 1); break;
+        case 'ArrowLeft':
+          e.preventDefault(); goTo(current - 1); break;
+        case 'Home': e.preventDefault(); goTo(0); break;
+        case 'End':  e.preventDefault(); goTo(total - 1); break;
+        case 'f':
+        case 'F':
+          document.getElementById('btn-fullscreen').click(); break;
+      }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    document.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    document.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(dx) > 50) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+  })();
+</script>
+
+</body>
+</html>

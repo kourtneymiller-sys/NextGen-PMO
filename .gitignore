@@ -1,0 +1,27 @@
+# Temporary Office files
+~$*.xlsx
+~$*.pptx
+~$*.docx
+*.tmp
+
+# Excel temporary files
+.~lock.*
+
+# Windows thumbnails
+Thumbs.db
+Desktop.ini
+
+# Mac files (if syncing across devices)
+.DS_Store
+
+# Python cache (if any)
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Add any other patterns you want to exclude
+
+# Temporarily exclude locked file
+1 off Projects/Wallkill vs Carnesville/Wallkill vs Carnesville  Comparison.pptx
